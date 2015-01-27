@@ -52,18 +52,15 @@ public class Matriz {
 		return matrizResultante;
 	}
 
-	public static Matriz multiplicarDosMatrices(Matriz a, Matriz b)
+	public static Matriz InvertirMatriz(Matriz a)
 			throws DimensionesIncompatibles {
-		if (!a.getDimension().equals(b.getDimension()))
-			throw new DimensionesIncompatibles(
-					"La multiplicaci—n de matrices requiere matrices de las mismas dimensiones");
 		int i, j, filasA, columnasA;
 		filasA = a.getDimension().height;
 		columnasA = a.getDimension().width;
 		Matriz matrizResultante = new Matriz(filasA, columnasA, false);
 		for (j = 0; j < filasA; j++) {
 			for (i = 0; i < columnasA; i++) {
-				matrizResultante.datos[i][j] += a.datos[i][j] * b.datos[i][j];
+				matrizResultante.datos[i][j] = a.datos[j][i];
 			}
 		}
 		return matrizResultante;
